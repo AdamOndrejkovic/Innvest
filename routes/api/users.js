@@ -9,6 +9,7 @@ const User = require('../../models/User')
 
 /**
  * @api {post} api/users Register user
+ * @apiGroup users
  * @apiError (400) BadRequest Name us required
  * @apiError (400) BadRequest Please include a valid email
  * @apiError (400) BadRequest Please enter a password with 6 or more characters

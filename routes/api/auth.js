@@ -36,7 +36,6 @@ router.get('/', auth, async (req, res) => {
 
 /**
  * @api {post} /api/auth Authenticate user & get token
- * @apiPrivate
  * @apiGroup auth
  * @apiError (400) BadRequest Please include a valid email
  * @apiError (400) BadRequest Password is required
