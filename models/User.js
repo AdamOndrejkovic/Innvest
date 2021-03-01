@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongooseTypePhone = require('mongoose-type-phone');
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -14,12 +15,9 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    avatar: {
-        type: String
-    },
-    date: {
-        type: Date,
-        default: Date.now
+    phoneNumber: {
+        type: String,
+        required: true,
     }
 })
 
