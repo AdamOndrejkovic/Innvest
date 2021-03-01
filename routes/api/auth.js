@@ -36,6 +36,7 @@ router.get('/', auth, async (req, res) => {
 
 /**
  * @api {post} /api/auth Authenticate user & get token
+ * @apiPrivate
  * @apiGroup auth
  * @apiError (400) BadRequest Please include a valid email
  * @apiError (400) BadRequest Password is required
@@ -48,6 +49,7 @@ router.get('/', auth, async (req, res) => {
  *     {
  *     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAzYzhjNDhlMjIxYzgyMmEwMzU1ZWFiIn0sImlhdCI6MTYxNDU4MzQxMywiZXhwIjoxNjE1MDE1NDEzfQ.8Qvgs3oPwdBjRAy8KSMbxNBqWKI97Nr_ADcL_RlyuQc"
  *     }
+ *
  */
 router.post(
     '/',

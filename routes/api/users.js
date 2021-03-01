@@ -1,17 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const {check, validationResult} = require('express-validator');
-const normalize = require('normalize-url');
 
 const User = require('../../models/User')
 
-// @route   POST api/users
-// @desc    Register user
-// @access  Public
+/**
+ * @api {post} api/users Register user
+ * @apiError (400) BadRequest Name us required
+ * @apiError (400) BadRequest Please include a valid email
+ * @apiError (400) BadRequest Please enter a password with 6 or more characters
+ * @apiError (400) BadRequest Please enter a valid phone number
+ * @apiError (400) BadRequest User already exists
+ * @apiError (500) ServerError Server error
+ * @apiExample {json} Success-Response:
+ *     200 OK
+ *     {
+ *     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAzYzhjNDhlMjIxYzgyMmEwMzU1ZWFiIn0sImlhdCI6MTYxNDU4MzQxMywiZXhwIjoxNjE1MDE1NDEzfQ.8Qvgs3oPwdBjRAy8KSMbxNBqWKI97Nr_ADcL_RlyuQc"
+ *     }
+ */
 router.post('/',
     check('name', "Name us required").notEmpty(),
     check('email', 'Please include a valid email').isEmail(),
